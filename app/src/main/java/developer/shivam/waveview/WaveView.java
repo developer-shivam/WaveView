@@ -23,14 +23,15 @@ public class WaveView extends View {
     private Paint lineColor;
     private Paint secondLineColor;
     private Paint thirdLineColor;
-    int frequency = 180;
-    int amplitude = 20;
-    private float movement1 = 0;
+    int frequency = 90;
+    int amplitude = 80;
+    private float shift = 0;
     private float movement2 = 0;
     private float movement3 = 0;
     private int quadrant;
     long time = System.currentTimeMillis();
     Path mPath = new Path();
+    Path secondPath = new Path();
 
     public WaveView(Context context) {
         super(context);
@@ -69,35 +70,29 @@ public class WaveView extends View {
         width = canvas.getWidth();
 
         mPath.moveTo(0, getHeight());
-        mPath.lineTo(0, getHeight()/3);
+        secondPath.moveTo(0, getHeight());
+        mPath.lineTo(0, quadrant);
+        secondPath.lineTo(0, quadrant*2);
 
-        for (int i = 0; i < width; i = i + 10) {
+        for (int i = 0; i < width; i++) {
             x1 = (float) i;
-            //x2 = (float) i;
 
-            y1 = quadrant + amplitude * (float) Math.sin(((i + 10) * Math.PI / frequency) + movement1);
-            //y2 = quadrant * 2 + amplitude * (float) Math.sin(((i + 1) * Math.PI / frequency) + movement1);
+            y1 = quadrant + amplitude * (float) Math.sin(((i) * Math.PI / frequency) + shift);
+            y2 = quadrant * 2 + amplitude * (float) Math.sin(((i) * Math.PI / frequency) + shift);
 
             mPath.lineTo(x1, y1);
-            //canvas.drawLine(oldX1, oldY1, x1, y1, lineColor);
-            //canvas.drawLine(oldX2, oldY2, x2, y2, secondLineColor);
-
-            oldX1 = x1;
-            oldY1 = y1;
-
-            oldX2 = x2;
-            oldY2 = y2;
-
-            //canvas.drawLine(x1, y1, x1, canvas.getHeight(), lineColor);
-            //canvas.drawLine(x2, y2, x2, canvas.getHeight(), secondLineColor);
+            secondPath.lineTo(x1, y2);
         }
         mPath.lineTo(getWidth(), getHeight());
+        secondPath.lineTo(getWidth(), getHeight());
         canvas.drawPath(mPath, lineColor);
+        canvas.drawPath(secondPath, secondLineColor);
     }
 
     public void setMovementOne(float movement) {
-        this.movement1 = movement;
+        this.shift = movement;
         mPath.reset();
+        secondPath.reset();
         invalidate();
     }
 
@@ -106,7 +101,7 @@ public class WaveView extends View {
 
         @Override
         public void run() {
-            float movement = (float) (movement1 + 0.2);
+            float movement = (float) (shift + 0.2);
             setMovementOne(movement);
             handler1.postDelayed(new CustomRunnableOne(), 16);
         }
