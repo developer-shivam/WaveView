@@ -10,7 +10,6 @@ import developer.shivam.library.WaveView;
 
 public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
 
-    private Context mContext = MainActivity.this;
     private WaveView view;
     private SeekBar speedSeekBar, amplitudeSeekBar;
 
@@ -18,20 +17,18 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        WaveView view = new WaveView(this);
-        view.setSpeed(5);
-        view.setAmplitude(5);
-        setContentView(view);
+        setContentView(R.layout.activity_main);
+        view = (WaveView) findViewById(R.id.sample_wave_view);
 
         /**
          * Two seekBar to control wave behaviour
          */
-        /*speedSeekBar = (SeekBar) findViewById(R.id.seekBarSpeed);
+        speedSeekBar = (SeekBar) findViewById(R.id.seekBarSpeed);
         speedSeekBar.setMax(10);
         speedSeekBar.setOnSeekBarChangeListener(this);
         amplitudeSeekBar = (SeekBar) findViewById(R.id.seekBarAmplitude);
         amplitudeSeekBar.setMax(10);
-        amplitudeSeekBar.setOnSeekBarChangeListener(this);*/
+        amplitudeSeekBar.setOnSeekBarChangeListener(this);
     }
 
     @Override
