@@ -4,7 +4,7 @@
 [![API](https://img.shields.io/badge/API-8%2B-brightred.svg)](https://github.com/developer-shivam/WaveView.git)
 
 ### Preview
-![gif](screenshots/wave_view.gif) ![screenshot](screenshots/screenshot.png) 
+![gif](screenshots/wave_gif.gif) ![screenshot](screenshots/screenshot.png =360x720) 
 
 ### Gingerbread to Naugat Support
 
