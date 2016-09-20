@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="wave">
+        <attr name="wave_speed" format="integer" />
+        <attr name="wave_height" format="integer" />
+    </declare-styleable>
+</resources>

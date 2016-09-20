@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:wave="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="developer.shivam.waveview.MainActivity">
 
-    <developer.shivam.waveview.WaveView android:id="@+id/sample_wave_view"
+    <developer.shivam.library.WaveView
+        android:id="@+id/sample_wave_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        wave:wave_speed="1"
+        wave:wave_height="2"/>
 
     <SeekBar android:id="@+id/seekBarSpeed"
         android:layout_width="match_parent"

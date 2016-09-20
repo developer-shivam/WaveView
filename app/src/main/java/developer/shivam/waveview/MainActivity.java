@@ -1,12 +1,12 @@
 package developer.shivam.waveview;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.animation.LinearInterpolator;
 import android.widget.SeekBar;
+
+import developer.shivam.library.WaveView;
 
 public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
 
@@ -19,7 +19,12 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         view = (WaveView) findViewById(R.id.sample_wave_view);
+
+        /**
+         * Two seekBar to control wave behaviour
+         */
         speedSeekBar = (SeekBar) findViewById(R.id.seekBarSpeed);
         speedSeekBar.setMax(10);
         speedSeekBar.setOnSeekBarChangeListener(this);
