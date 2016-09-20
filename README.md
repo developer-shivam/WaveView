@@ -4,9 +4,9 @@
 [![API](https://img.shields.io/badge/API-8%2B-brightred.svg)](https://github.com/developer-shivam/WaveView.git)
 
 ### Preview
-![gif](screenshots/wave_gif.gif) ![screenshot](screenshots/screenshot.png = 360x720) 
+![gif](screenshots/wave_gif.gif) ![screenshot](screenshots/screenshot.png) 
 
-### Gingerbread to Naugat Support
+### Gingerbread to Nougat Support
 
 This custom view is sturctured of Sine Equation which you have learnt in your school. In simple language y varies for every x such that it results in this sexy view.
 
